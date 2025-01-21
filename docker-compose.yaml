@@ -1,0 +1,27 @@
+services:
+  webbackend:
+    build: .
+    platform: linux/amd64
+    ports:
+      - "8000:8000"
+    depends_on:
+      - database
+    env_file:
+      - local.env
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2048M
+        reservations:
+          cpus: '1'
+          memory: 1024M
+
+  database:
+    image: postgres:15.4
+    environment:
+      POSTGRES_USER: clusteradmin
+      POSTGRES_PASSWORD: test@123
+      POSTGRES_DB: clusterdb
+    ports:
+      - 5432:5432

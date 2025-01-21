@@ -1,0 +1,3 @@
+[submodule "src/administrativesettings"]
+	path = src/administrativesettings
+	url = git@github.com:Zota-NexTech-Limited/zota-pos-administivesettings.git
